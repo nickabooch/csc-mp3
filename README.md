@@ -2,7 +2,7 @@ Name: Rommin Adl, Shibam Mukhopadhyay
 
 This is Mini-Project 3: Text layout. It includes Truncated, Centered, RightJustified, HorizontallyFlipped, VerticallyFlipped, DiagonallyFlipped TextBlocks and three models of equality for the TextBlock objects along with relevant test cases in Tests.
 
-GitHub repo:
+GitHub repo: https://github.com/nickabooch/csc-mp3
 
 Resources Used
 Lab: Unit Testing
