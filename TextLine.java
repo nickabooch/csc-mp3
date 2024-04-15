@@ -6,77 +6,78 @@
  * @author Shibam Mukhopadhyay
  */
 public class TextLine implements TextBlock {
-    // +--------+------------------------------------------------------------
-    // | Fields |
-    // +--------+
+// +--------+------------------------------------------------------------
+// | Fields |
+// +--------+
     
-    /**
-     * The contents of the line.
-     */
-    private String line;
-
-    // +--------------+------------------------------------------------------
-    // | Constructors |
-    // +--------------+
+  /**
+   * The contents of the line.
+   */
+  private String line;
+  
+// +--------------+------------------------------------------------------
+// | Constructors |
+// +--------------+
     
-    /**
-     * Constructs a new TextLine with the specified contents.
-     * 
-     * @param line The text content of this line.
-     */
-    public TextLine(String line) {
-        this.line = line;
-    }
-
-    // +---------+-----------------------------------------------------------
-    // | Methods |
-    // +---------+
+  /**
+   * Constructs a new TextLine with the specified contents.
+   * 
+   * @param line The text content of this line.
+   */
+  public TextLine(String line) {
+    this.line = line;
+  }//TextLine(String)
+  
+// +---------+-----------------------------------------------------------
+// | Methods |
+// +---------+
     
-    /**
-     * Returns a single row of text from this TextLine.
-     * 
-     * @param i The row number to retrieve, which must be 0 for a TextLine.
-     * @return The text of this line.
-     * @throws Exception if the row number is not 0, as TextLine contains only one row.
-     */
-    @Override
-    public String row(int i) throws Exception {
-        if (i != 0) {
-            throw new Exception("Invalid row " + i + "; TextLine contains only one row.");
-        }
-        return this.line;
+  /**
+   * Returns a single row of text from this TextLine.
+   * 
+   * @param i The row number to retrieve, which must be 0 for a TextLine.
+   * @return The text of this line.
+   * @throws Exception if the row number is not 0, as TextLine contains only one row.
+   */
+  @Override
+  public String row(int i) throws Exception {
+    if (i != 0) {
+      throw new Exception("Invalid row " + i + "; TextLine contains only one row.");
     }
-
-    /**
-     * Returns the number of rows in this TextLine, which is always 1.
-     * 
-     * @return The fixed height of 1.
-     */
-    @Override
-    public int height() {
-        return 1;
-    }
-
+    return this.line;
+  }//row(int)
+  
+  /**
+   * Returns the number of rows in this TextLine, which is always 1.
+   * 
+   * @return The fixed height of 1.
+   */
+  @Override
+  public int height() {
+    return 1;
+  }//height
+  
     /**
      * Returns the width of this TextLine, based on its content length.
      * 
      * @return The length of the line.
      */
-    @Override
-    public int width() {
-        return this.line.length();
-    }
-
+  @Override
+  public int width() {
+    return this.line.length();
+  }//width
+  
     /**
      * Checks if another TextBlock is equivalent to this TextLine.
      * 
      * @param other The TextBlock to compare with this TextLine.
      * @return true if the other TextBlock is a TextLine with the same content; false otherwise.
      */
-    @Override
-    public boolean eqv(TextBlock other) {
-        if (!(other instanceof TextLine)) return false;
-        TextLine otherLine = (TextLine) other;
-        return this.line.equals(otherLine.line);
-    }
-}
+  @Override
+  public boolean eqv(TextBlock other) {
+    if (!(other instanceof TextLine)) return false;
+    TextLine otherLine = (TextLine) other;
+    return this.line.equals(otherLine.line);
+  }//eqv(TextBlock)
+}//TextLine
+  

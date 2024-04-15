@@ -9,54 +9,54 @@
  * 
  */
 public class HorizontallyFlipped implements TextBlock {
-    // +--------+------------------------------------------------------------
-    // | Fields |
-    // +--------+
-    private TextBlock original;
+// +--------+------------------------------------------------------------
+// | Fields |
+// +--------+
+  private TextBlock original;
 
-    // +--------------+------------------------------------------------------
-    // | Constructors |
-    // +--------------+
-    /**
-     * Constructs a HorizontallyFlipped text block wrapping the original text block.
-     * 
-     * @param original The original text block to be flipped.
-     */
-    public HorizontallyFlipped(TextBlock original) {
-        this.original = original;
-    }
+// +--------------+------------------------------------------------------
+// | Constructors |
+// +--------------+
+  /**
+   * Constructs a HorizontallyFlipped text block wrapping the original text block.
+   * 
+   * @param original The original text block to be flipped.
+   */
+  public HorizontallyFlipped(TextBlock original) {
+    this.original = original;
+  }//HorizontallyFlipped(TextBlock)
 
-    // +---------+-----------------------------------------------------------
-    // | Methods |
-    // +---------+
-    @Override
-    public String row(int i) throws Exception {
-        if (i < 0 || i >= this.height()) {
-            throw new IllegalArgumentException("Invalid row index: " + i);
-        }
-        // Retrieve the original row and reverse it for the horizontal flip.
-        // Utilizes StringBuilder for efficient string reversal.
-        String originalRow = this.original.row(i);
-        return new StringBuilder(originalRow).reverse().toString();
+// +---------+-----------------------------------------------------------
+// | Methods |
+// +---------+
+  @Override
+  public String row(int i) throws Exception {
+    if (i < 0 || i >= this.height()) {
+      throw new IllegalArgumentException("Invalid row index: " + i);
     }
+    // Retrieve the original row and reverse it for the horizontal flip.
+    // Utilizes StringBuilder for efficient string reversal.
+    String originalRow = this.original.row(i);
+    return new StringBuilder(originalRow).reverse().toString();
+  }//row(int)
 
-    @Override
-    public int width() {
-        // The width remains the same as the original's width after flipping.
-        return original.width();
-    }
+  @Override
+  public int width() {
+    // The width remains the same as the original's width after flipping.
+    return original.width();
+  }//width
 
-    @Override
-    public int height() {
-        // The height remains the same as the original's height after flipping.
-        return original.height();
-    }
+  @Override
+  public int height() {
+    // The height remains the same as the original's height after flipping.
+    return original.height();
+  }//height
 
-    @Override
-    public boolean eqv(TextBlock other) {
-        // Checks for structural equivalence, including the flipping.
-        if (!(other instanceof HorizontallyFlipped)) return false;
-        HorizontallyFlipped otherFlipped = (HorizontallyFlipped) other;
-        return this.original.eqv(otherFlipped.original);
-    }
-}
+  @Override
+  public boolean eqv(TextBlock other) {
+    // Checks for structural equivalence, including the flipping.
+    if (!(other instanceof HorizontallyFlipped)) return false;
+    HorizontallyFlipped otherFlipped = (HorizontallyFlipped) other;
+    return this.original.eqv(otherFlipped.original);
+  }//eqv(TextBlock)
+}//HorizontallyFlipped
